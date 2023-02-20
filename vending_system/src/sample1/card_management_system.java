@@ -7,8 +7,8 @@ import java.util.List;
 //電子マネー管理システム
 public class card_management_system{
 	//入力を保存するリスト作成
-	static List<String> id_list = new ArrayList<String>(Arrays.asList("1111", "2222", "1234"));
-	static List<Integer> balance_list = new ArrayList<Integer>(Arrays.asList(0, 1000, 10000));
+	static List<String> id_list = new ArrayList<String>(Arrays.asList());
+	static List<Integer> balance_list = new ArrayList<Integer>(Arrays.asList());
 
 	//電子マネー管理
 	public static int id_managemant(String card_id) {
