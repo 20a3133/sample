@@ -8,7 +8,7 @@ public class drink extends item{
 
 	String name;
 	int price;
-	int id;
+	String id;
 
 	public static void primary_add_drink() {
 		item_name.addAll(Arrays.asList("カレー", "ラーメン", "味噌汁", "ハンバーガー", "牛丼"));
@@ -44,8 +44,10 @@ public class drink extends item{
 		System.out.print("値段：");
 		this.price = sample1.sc.nextInt();
 		//商品番号から飲み物のみ抽出しリスト化、一番大きい番号の次に振り当て
-		List<String> list = item_id.stream().filter(str -> Integer.valueOf(str)/1000==1).collect(Collectors.toList());
-		this.id = Integer.valueOf(list.get(list.size()-1)) + 1;
+		List<String> list = item_id.stream().filter(str -> Integer.valueOf(str)/1000==0).collect(Collectors.toList());
+		//一番古い番号
+		int num = Integer.valueOf(list.get(list.size()-1)) + 1;
+		this.id = String.format("%04d", num);
 		super.register(name, price, id);
 	}
 

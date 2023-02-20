@@ -23,10 +23,10 @@ public class item{
 	}
 
 	//商品名、価格、賞味期限を登録
-	protected void register(String name, int price, int id) {
+	protected void register(String name, int price, String id) {
 		this.name = name;
 		this.price = price;
-		this.id = String.valueOf(id);
+		this.id = id;
 
 		item_name.add(this.name);
 		item_price.add(this.price);

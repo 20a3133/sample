@@ -28,11 +28,11 @@ public class manager{
 			sample1.MainClass();
 		}
 		if(index == 4) {
-			//商品追加（0:食べ物、1:飲み物）
-			System.out.print("商品の種別を入力：");
+			//商品追加（0:飲み物、1:食べ物）
+			System.out.print("商品の種別を入力（0:飲み物、1:食べ物）：");
 			int num = sample1.sc.nextInt();
-			if(num==0) food.add_item();
-			else if(num==1) drink.add_item();
+			if(num==1) food.add_item();
+			else if(num==0) drink.add_item();
 		}
 		else {
 			while(true) {
