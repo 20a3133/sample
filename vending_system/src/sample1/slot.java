@@ -19,7 +19,6 @@ public class slot{
 		}
 		//cの値によってnum[0]に値を近づける
 		b = (1-c) * 10;
-
 		num[0]=(int)rand.nextDouble()*10;
 		for(int i=1;i<4;i++) {
 			num[i] += (int)((rand.nextDouble()*b)+num[i-1]);
