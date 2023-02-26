@@ -25,7 +25,6 @@ public class vending_machine {
 		for(int i=0;i<item_management.stock.size();i++) {
 			item_management.sub_stock.set(i, item_management.stock.get(i));
 		}
-		//System.out.println(item_management.sub_stock);
 		//初期画面
 		System.out.print("4ケタのカード番号を入力してください：");
 		while(true) {
