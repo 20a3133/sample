@@ -34,6 +34,7 @@ public class item{
 		item_management.sub_stock.add(10);
 		expiry_date.add(0);
 		item_id.add(this.id);
+		cart.cart.add(0);
 
 		System.out.println("登録しました\n");
 		try {
@@ -55,6 +56,7 @@ public class item{
 		item_management.stock.remove(index);
 		item_management.sub_stock.remove(index);
 		item_id.remove(index);
+		cart.cart.remove(index);
 		manager.Host();
 	}
 	//商品名変更
