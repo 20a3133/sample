@@ -9,7 +9,7 @@ public class payment_system{
 	public static void Buy() {
 		while(true) {
 			//商品選択（在庫数は仮を参照）
-			vending_machine.new_line(20);
+			sample1.new_line(50);
 			System.out.println("\n購入したい商品を選択してください\nカートを確認したいときはaキーを、"
 					+ "支払いを確定したいときはsキーを押してください");
 			for(int i=0;i<item.item_name.size();i++) {
@@ -21,7 +21,7 @@ public class payment_system{
 			System.out.printf("\n%s:%s　%s:%s　%s:%s\n", "a", "カートを確認する", "s", "支払い画面に行く" , "d", "カード番号入力画面に戻る");
 
 			System.out.print("選択したキー：");
-			String x = vending_machine.sc.next();
+			String x = sample1.sc.next();
 			if(x.equals("a")) {
 				//カート確認
 				cart_check();
@@ -33,14 +33,14 @@ public class payment_system{
 				break;
 			}
 			else if(x.equals("d")) {
-				vending_machine.new_line(20);
-				vending_machine.MainClass();
+				sample1.new_line(50);
+				sample1.MainClass();
 				break;
 			}
 			else {
 				int y = Integer.valueOf(x);
 				System.out.printf("買いたい個数を入力してください：");
-				int num = vending_machine.sc.nextInt();
+				int num = sample1.sc.nextInt();
 				if(y>=0 && y<item.item_id.size()) {
 					//カートに追加
 					if(payment_system.add_amount(y, num)){
@@ -92,7 +92,7 @@ public class payment_system{
 
 	//カートを確認
 	public static void cart_check() {
-		vending_machine.new_line(20);
+		sample1.new_line(50);
 		System.out.print("\nカートの中身：\n");
 		for(int i=0;i<item.item_name.size();i++){
 			if(cart.cart.get(i) > 0) System.out.printf("%d：%6s %6d円, 個数：%2d個\n",i,
@@ -101,7 +101,7 @@ public class payment_system{
 		System.out.printf("合計：%6d円\n",payment_system.total_fee());
 		while(true){
 			System.out.print("商品に対応したキーで削除、数字以外のキーで購入画面に戻ります：");
-			String x = vending_machine.sc.next();
+			String x = sample1.sc.next();
 			if(x.matches(".*[^0-9].*")) {
 				payment_system.Buy();
 				break;
@@ -124,7 +124,7 @@ public class payment_system{
 	//支払い確定した処理
 	public static void pay(){
 		//購入内容を表示
-		vending_machine.new_line(20);
+		sample1.new_line(50);
 		System.out.print("内訳：\n");
 		for(int i=0;i<item_management.stock.size();i++){
 			if(cart.cart.get(i) > 0) System.out.printf("%d：%6s %6d円, 個数：%2d個\n",i, item.item_name.get(i),item.item_price.get(i), cart.cart.get(i));
@@ -134,16 +134,16 @@ public class payment_system{
 		System.out.print("これでよろしいですか？ 1キーで確定 0キーで戻る：");
 
 		while(true) {
-			int x = vending_machine.sc.nextInt();
+			int x = sample1.sc.nextInt();
 			if(x==1) {
 				//チャージ額が足りない場合、カート画面に戻る
-				if(amount>vending_machine.balance) {
+				if(amount>sample1.balance) {
 					System.out.print("チャージ残額が足りません カートから商品を減らしてください\n");
 					try {
 						Thread.sleep(3000); // 3秒(3千ミリ秒)間だけ処理を止める
 					} catch (InterruptedException e) {
 					}
-					vending_machine.new_line(20);
+					sample1.new_line(20);
 					cart_check();
 				}//何も購入していない場合、購入画面に戻る
 				else if(cart.cart.stream().mapToInt(Integer::intValue).sum() == 0) {
@@ -156,8 +156,8 @@ public class payment_system{
 				}else {
 
 					//使用したカードのチャージ額を更新
-					int after_balance = vending_machine.balance - amount;
-					int index = card_management_system.id_list.indexOf(vending_machine.card_id);
+					int after_balance = sample1.balance - amount;
+					int index = card_management_system.id_list.indexOf(sample1.card_id);
 					card_management_system.balance_list.set(index, after_balance);
 
 					//売れた分の在庫を減らす
@@ -204,7 +204,7 @@ public class payment_system{
 			else System.out.printf("%2d:%6s %6d円　", i, item.item_name.get(i),item.item_price.get(i));
 		}
 		System.out.print("\n商品を1つ無料で差し上げます！ 商品を選んでください：");
-		int num = vending_machine.sc.nextInt();
+		int num = sample1.sc.nextInt();
 		//商品排出
 		System.out.println(item.item_name.get(num) + "が排出されました");
 
@@ -222,8 +222,8 @@ public class payment_system{
 			Thread.sleep(5000); // 5秒(5千ミリ秒)間だけ処理を止める
 		} catch (InterruptedException e) {
 		}finally {
-			vending_machine.new_line(20);
+			sample1.new_line(50);
 		}
-		vending_machine.MainClass();
+		sample1.MainClass();
 	}
 }

@@ -7,7 +7,7 @@ public class manager{
 		food food = new food();
 		drink drink = new drink();
 
-		sample1.new_line(20);
+		sample1.new_line(50);
 		System.out.println("管理者画面");
 		//在庫一覧
 		System.out.printf("    品名%10s金額%5s在庫数%5s番号\n", " "," "," ");
@@ -24,7 +24,7 @@ public class manager{
 		System.out.printf("操作入力:");
 		int index = sample1.sc.nextInt();
 		if(index == 5) {
-			sample1.new_line(20);
+			sample1.new_line(50);
 			sample1.MainClass();
 		}
 		if(index == 4) {

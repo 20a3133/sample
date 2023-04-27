@@ -50,7 +50,7 @@ public class slot{
 				Thread.sleep(3000); // 3秒(3千ミリ秒)間だけ処理を止める
 			} catch (InterruptedException e) {
 			}finally {
-				sample1.new_line(20);
+				sample1.new_line(50);
 			}
 			payment_system.Win();
 		 }else {
@@ -65,7 +65,7 @@ public class slot{
 				Thread.sleep(5000); // 5秒(5千ミリ秒)間だけ処理を止める
 			} catch (InterruptedException e) {
 			}finally {
-				sample1.new_line(20);
+				sample1.new_line(50);
 			}
 			sample1.MainClass();
 		 }

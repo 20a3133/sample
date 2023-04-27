@@ -28,11 +28,12 @@ public class card_management_system{
 
 	//チャージ
 	public static void Charge(String card_id, int balance) {
+		sample1.new_line(50);
 		System.out.println("\nチャージ");
 		System.out.printf("現在の残高：%d円\n", balance);
 		System.out.print("チャージ金額を入力してください：");
 		while(true) {
-			String cash = vending_machine.sc.next();
+			String cash = sample1.sc.next();
 			if(cash.matches(".*[a-zA-Z].*")) {
 				System.out.print("数字で入力してください：");
 				try {
@@ -49,7 +50,7 @@ public class card_management_system{
 	public static void realcash(int cash, String card_id, int balance){
 		System.out.print("1キーを押して投入金額を確定させてください\n戻るなら0キーを押してください：");
 		while(true){
-			int x = vending_machine.sc.nextInt();
+			int x = sample1.sc.nextInt();
 			if(x==1) {
 				System.out.print("チャージが完了されました");
 				try {
@@ -61,14 +62,14 @@ public class card_management_system{
 			int index = card_management_system.id_list.indexOf(card_id);
 			//balance_listの更新
 			card_management_system.balance_list.set(index, new_balance);
-			vending_machine.new_line(25);
-			vending_machine.MainClass();
+			sample1.new_line(50);
+			sample1.MainClass();
 			}
 			else if(x==0)
 				Charge(card_id, balance);
 			else {
-				vending_machine.new_line(25);
-				vending_machine.MainClass();
+				sample1.new_line(50);
+				sample1.MainClass();
 			}
 		}
 	}
